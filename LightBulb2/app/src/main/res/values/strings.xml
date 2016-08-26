@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LightBulb</string>
+    <string name="orientation_portrait">Portrait</string>
+    <string name="orientation_landscape">Landscape</string>
+    <string name="bulb_on">BULB IS ON</string>
+    <string name="bulb_off">BLUB IS OFF</string>
+</resources>
