@@ -4,12 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView conversionTextView;
+    private CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +23,17 @@ public class MainActivity extends AppCompatActivity {
     private void initialiseUI() {
         Button button = (Button)findViewById(R.id.button);
         conversionTextView = (TextView)findViewById(R.id.conversionValue);
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 double convertedValue = convertToMetric();
                 if (convertedValue != -1) {
-                    conversionTextView.setText(Double.toString(convertedValue).concat(getString(R.string.cm)));
+                    if (checkBox.isChecked()){
+                        conversionTextView.setText(Double.toString(convertedValue/100).concat(getString(R.string.m)));
+                    } else {
+                        conversionTextView.setText(Double.toString(convertedValue).concat(getString(R.string.cm)));
+                    }
                 }
             }
         });

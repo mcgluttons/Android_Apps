@@ -3,9 +3,10 @@
     <string name="miles_label">Miles:</string>
     <string name="feet_label">Feet:</string>
     <string name="inches_label">Inches:</string>
-    <string name="conversion_label">Conversion:</string>
+    <string name="conversion_label">Conversion: </string>
     <string name="button">Convert</string>
     <string name="cm">cm</string>
-    <string name="m">m</string>
+    <string name="m">metres</string>
+    <string name="checkbox_label">Units in metres</string>
 
 </resources>

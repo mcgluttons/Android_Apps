@@ -13,7 +13,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="1"
+        android:stretchColumns="*"
         android:layout_weight="2">
 
         <TableRow
@@ -24,76 +24,87 @@
                 android:id="@+id/milesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/miles_label" />
-
-            <EditText
-                android:id="@+id/milesValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:text="@string/miles_label"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/feetLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/feet_label" />
+                android:text="@string/feet_label"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
 
-            <EditText
-                android:id="@+id/feetValue"
+            <TextView
+                android:id="@+id/inchesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:text="@string/inches_label"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/inchesLabel"
+            <EditText
+                android:id="@+id/milesValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/inches_label" />
+                android:inputType="numberDecimal"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/feetValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_weight="1"/>
 
             <EditText
                 android:id="@+id/inchesValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:layout_weight="1"/>
         </TableRow>
 
     </TableLayout>
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/conversion_label"
-            android:id="@+id/conversionLabel"
-            android:layout_weight="1" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/conversionValue"
-            android:layout_weight="2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/conversion_label"
+                android:id="@+id/conversionLabel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/conversionValue" />
+        </LinearLayout>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/checkbox_label"
             android:id="@+id/checkBox"
-            android:layout_weight="1"/>
-    </TableRow>
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
