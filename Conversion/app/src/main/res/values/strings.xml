@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Conversion</string>
+
+    <string name="temp_button_label">Convert Temperatures</string>
+    <string name="dist_button_label">Convert Distances</string>
+
+    <string name="temp_scale_radio_label">Convert To</string>
+    <string name="f_radio_label">Fahrenheit</string>
+    <string name="c_radio_label">Celsius</string>
+    <string name="edit_text_label">Temperature to convert:</string>
+
+    <string name="convert_button_label">Convert</string>
+
+</resources>
