@@ -1,5 +1,6 @@
 package com.mcgluttons.conversion;
 
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,5 +56,17 @@ public class TempActivity extends AppCompatActivity {
         } else if (cRadioButton.isChecked()) {
             output.setText(inputValue.getText().toString() + "\u2109 is " + String.format("%.2f", output_value) + "\u2103");
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("output", output.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        output.setText(savedInstanceState.getString("output"));
     }
 }

@@ -1,5 +1,6 @@
 package com.mcgluttons.conversion;
 
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class DistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dist);
+
         initialiseUI();
     }
 
@@ -67,8 +69,18 @@ public class DistActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("output", outputTextView.getText().toString());
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
 
+        outputTextView.setText(savedInstanceState.getString("output"));
     }
 }
