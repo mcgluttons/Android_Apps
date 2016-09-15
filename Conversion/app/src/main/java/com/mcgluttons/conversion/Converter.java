@@ -19,4 +19,16 @@ public class Converter {
         return (valueToConvert * 9 / 5 + 32);
     }
 
+    public double covertMiles() {
+        return valueToConvert * 5280 * 12 * 2.54;
+    }
+
+    public double convertFeet() {
+        return valueToConvert * 12 * 2.54;
+    }
+
+    public double convertInches() {
+        return valueToConvert * 2.54;
+    }
+
 }

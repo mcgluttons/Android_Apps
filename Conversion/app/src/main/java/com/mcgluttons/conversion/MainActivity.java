@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // call DistActivity
+                Intent startDistActivity = new Intent(MainActivity.this, DistActivity.class);
+                startActivity(startDistActivity);
             }
         });
     }
