@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Food Icons</string>
+    <string name="bacon_desc">So much bacon!!!!</string>
+    <string name="pancake_desc">Mmmmmm maple syrup</string>
+    <string name="burger_desc">TGIF anyone?</string>
+    <string name="chicken_desc">Want some special fried rice?</string>
+</resources>
