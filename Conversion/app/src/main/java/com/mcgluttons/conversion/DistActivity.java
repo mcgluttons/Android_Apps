@@ -13,14 +13,14 @@ import android.widget.TextView;
 
 public class DistActivity extends AppCompatActivity {
 
-    //private RadioGroup radioGroup;
-    private RadioButton milesRadioButton;
-    private RadioButton feetRadioButton;
-    private RadioButton inchesRadioButton;
     private EditText inputEditText;
-    private CheckBox unitsCheckBox;
     private TextView outputTextView;
-    private Button convertButton;
+    RadioButton milesRadioButton;
+    RadioButton feetRadioButton;
+    RadioButton inchesRadioButton;
+    RadioButton kmRadioButton;
+    RadioButton mRadioButton;
+    RadioButton mmRadioButton;
 
 
     @Override
@@ -36,10 +36,12 @@ public class DistActivity extends AppCompatActivity {
         milesRadioButton = (RadioButton)findViewById(R.id.milesRadioButton);
         feetRadioButton = (RadioButton)findViewById(R.id.feetRadioButton);
         inchesRadioButton = (RadioButton)findViewById(R.id.inchesRadioButton);
+        kmRadioButton = (RadioButton)findViewById(R.id.kmRadioButton);
+        mRadioButton = (RadioButton)findViewById(R.id.mRadioButton);
+        mmRadioButton = (RadioButton)findViewById(R.id.mmRadioButton);
         inputEditText = (EditText)findViewById(R.id.editText);
-        unitsCheckBox = (CheckBox)findViewById(R.id.checkBox);
         outputTextView = (TextView)findViewById(R.id.outputTextView);
-        convertButton = (Button)findViewById(R.id.button);
+        Button convertButton = (Button)findViewById(R.id.button);
 
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,17 +57,22 @@ public class DistActivity extends AppCompatActivity {
                     } else if (feetRadioButton.isChecked()) {
                         output_value = convert.convertFeet();
                         units = "feet";
-                    } else {
+                    } else if (inchesRadioButton.isChecked()){
+                        output_value = convert.convertInches();
+                        units = "inches";
+                    }  else {
                         output_value = convert.convertInches();
                         units = "inches";
                     }
-                    if (unitsCheckBox.isChecked()) {
-                        output_value /= 100;
+                    if (kmRadioButton.isChecked()) {
+                        output_value /= 1000000;
+                        outputTextView.setText(inputEditText.getText().toString() + " " + units + " is " + Double.toString(output_value) + " kilometers");
+                    } else if (mRadioButton.isChecked()){
+                        output_value /= 1000;
                         outputTextView.setText(inputEditText.getText().toString() + " " + units + " is " + Double.toString(output_value) + " meters");
-                    } else {
-                        outputTextView.setText(inputEditText.getText().toString() + " " + units + " is " + Double.toString(output_value) + " centimeters");
+                    } else if (mmRadioButton.isChecked()) {
+                        outputTextView.setText(inputEditText.getText().toString() + " " + units + " is " + Double.toString(output_value) + " millimeters");
                     }
-
                 }
             }
         });

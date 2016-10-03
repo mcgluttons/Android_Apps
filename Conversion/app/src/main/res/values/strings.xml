@@ -11,10 +11,14 @@
 
     <string name="convert_button_label">Convert</string>
 
-    <string name="distance_radio_label">Convert From</string>
+    <string name="input_dimensions_radio_label">Convert From</string>
+    <string name="output_dimensions_radio_label">Convert To</string>
     <string name="miles_radio_label">Miles</string>
     <string name="feet_radio_label">Feet</string>
     <string name="inches_radio_label">Inches</string>
+    <string name="km_radio_label">Kilometers</string>
+    <string name="m_radio_label">Meters</string>
+    <string name="mm_radio_label">Millimeters</string>
     <string name="input_text_view">Distance to convert:</string>
     <string name="checkbox_label">units in meters</string>
 

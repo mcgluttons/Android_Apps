@@ -20,15 +20,15 @@ public class Converter {
     }
 
     public double covertMiles() {
-        return valueToConvert * 5280 * 12 * 2.54;
+        return valueToConvert * 5280 * 12 * 2.54 * 10;
     }
 
     public double convertFeet() {
-        return valueToConvert * 12 * 2.54;
+        return valueToConvert * 12 * 2.54 * 10;
     }
 
     public double convertInches() {
-        return valueToConvert * 2.54;
+        return valueToConvert * 2.54 * 10;
     }
 
 }
