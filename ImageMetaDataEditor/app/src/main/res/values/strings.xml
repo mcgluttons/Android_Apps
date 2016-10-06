@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Image MetaData Editor</string>
+
+    <string name="initial_image1_name">Image1</string>
+    <string name="initial_image1_date">6/10/2016</string>
+
+    <string name="initial_image2_name">Image2</string>
+    <string name="initial_image2_date">6/10/2016</string>
+
+    <string name="initial_image3_name">Image3</string>
+    <string name="initial_image3_date">6/10/2016</string>
+
+    <string name="initial_image4_name">Image4</string>
+    <string name="initial_image4_date">6/10/2016</string>
+</resources>
