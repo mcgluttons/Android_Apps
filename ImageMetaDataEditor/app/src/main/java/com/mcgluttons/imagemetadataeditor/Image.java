@@ -10,6 +10,8 @@ import android.os.Parcelable;
 
 public class Image implements Parcelable {
 
+    private String id;
+
     private String name;
 
     public String getName() {
@@ -87,5 +89,9 @@ public class Image implements Parcelable {
         parcel.writeString(date);
         parcel.writeString(email);
         parcel.writeInt(rating);
+    }
+
+    public String getId() {
+        return id;
     }
 }

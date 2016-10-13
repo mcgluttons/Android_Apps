@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView image1_name;
@@ -55,28 +57,28 @@ public class MainActivity extends AppCompatActivity {
         imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image1.getName(), image1.getSourceURL(), image1.getKeywords(), image1.getDate(), image1.getEmail(), image1.getRating());
+                showImageMetadata(image1, "image1");
             }
         });
 
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image2.getName(), image2.getSourceURL(), image2.getKeywords(), image2.getDate(), image2.getEmail(), image2.getRating());
+                showImageMetadata(image2, "image2");
             }
         });
 
         imageButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image3.getName(), image3.getSourceURL(), image3.getKeywords(), image3.getDate(), image3.getEmail(), image3.getRating());
+                showImageMetadata(image3, "image3");
             }
         });
 
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image4.getName(), image4.getSourceURL(), image4.getKeywords(), image4.getDate(), image4.getEmail(), image1.getRating());
+                showImageMetadata(image4, "image4");
             }
         });
     }
@@ -123,17 +125,23 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    private void showImageMetadata(String name, String sourceURL, String keywords, String date, String email, int rating) {
+    private void showImageMetadata(Image image, String id) {
         // name source keyword date email rating
         Intent showFormActivity = new Intent(getApplicationContext(), FormActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("name", name);
-        bundle.putString("sourceURL", sourceURL);
-        bundle.putString("keywords", keywords);
-        bundle.putString("date", date);
-        bundle.putString("email", email);
-        bundle.putInt("rating", rating);
-        showFormActivity.putExtras(showFormActivity);
+        ArrayList<Image> imageToEdit = new ArrayList<Image>();
+        imageToEdit.add(image);
+        showFormActivity.putParcelableArrayListExtra("IMAGE_DATA", imageToEdit);
         startActivityForResult(showFormActivity, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (data != null) {
+                ArrayList<Image> imageMetaData = data.getParcelableArrayListExtra("IMAGE_DATA");
+                Image toModify = imageMetaData.get(0);
+                image4.getName(), image4.getSourceURL(), image4.getKeywords(), image4.getDate(), image4.getEmail(), image1.getRating();
+            }
+        }
     }
 }
