@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 double convertedValue = convertToMetric();
                 if (convertedValue != -1) {
                     if (checkBox.isChecked()){
-                        conversionTextView.setText(Double.toString(convertedValue/100).concat(getString(R.string.m)));
+                        conversionTextView.setText(Double.toString(convertedValue/100).concat(" " + getString(R.string.m)));
                     } else {
                         conversionTextView.setText(Double.toString(convertedValue).concat(getString(R.string.cm)));
                     }
@@ -59,5 +59,17 @@ public class MainActivity extends AppCompatActivity {
             return centimeter_value;
         }
         return -1;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("converted_value", conversionTextView.getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        conversionTextView.setText(savedInstanceState.getString("converted_value"));
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
