@@ -10,12 +10,22 @@ import android.os.Parcelable;
 
 public class Image implements Parcelable {
 
-    private String id;
+    private static int counter = 0;
+
+    private int ID;
+
+    public int getID() {
+        return ID;
+    }
 
     private String name;
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     private String sourceURL;
@@ -24,10 +34,18 @@ public class Image implements Parcelable {
         return sourceURL;
     }
 
+    public void setSourceURL(String sourceURL) {
+        this.sourceURL = sourceURL;
+    }
+
     private String keywords;
 
     public String getKeywords() {
         return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 
     private String email;
@@ -36,19 +54,32 @@ public class Image implements Parcelable {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     private String date;
 
     public String getDate() {
         return date;
     }
 
-    private int rating;
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-    public int getRating() {
+    private float rating;
+
+    public float getRating() {
         return rating;
     }
 
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
     public Image(String name, String date) {
+        this.ID = counter++;
         this.name = name;
         this.date = date;
     }
@@ -60,7 +91,7 @@ public class Image implements Parcelable {
         keywords = parcel.readString();
         date = parcel.readString();
         email = parcel.readString();
-        rating = parcel.readInt();
+        rating = parcel.readFloat();
     }
 
     public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() {
@@ -88,10 +119,15 @@ public class Image implements Parcelable {
         parcel.writeString(keywords);
         parcel.writeString(date);
         parcel.writeString(email);
-        parcel.writeInt(rating);
+        parcel.writeFloat(rating);
     }
 
-    public String getId() {
-        return id;
+    void cloneImage(Image modified) {
+        this.setName(modified.getName());
+        this.setDate(modified.getDate());
+        this.setEmail(modified.getEmail());
+        this.setKeywords(modified.getKeywords());
+        this.setSourceURL(modified.getSourceURL());
+        this.setRating(modified.getRating());
     }
 }

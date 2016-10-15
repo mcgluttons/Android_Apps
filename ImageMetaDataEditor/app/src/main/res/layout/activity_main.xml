@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -8,132 +8,153 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.mcgluttons.imagemetadataeditor.MainActivity">
+    tools:context="com.mcgluttons.imagemetadataeditor.MainActivity"
+    android:orientation="vertical">
 
-    <TableRow
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1" >
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/image1"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image1_name"
-                    android:text="Name1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image1_date"
-                    android:text="Date Obtained 1"/>
-            </LinearLayout>
+        android:orientation="horizontal">
 
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/image1"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/black_pen" />
+
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1">
-            <ImageButton
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/image1_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/image2"/>
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Name1" />
+
+            <TextView
+                android:id="@+id/image1_date"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image2_name"
-                    android:text="Name2"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image2_date"
-                    android:text="Date Obtained 2"/>
-            </LinearLayout>
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Date Obtained 1" />
         </LinearLayout>
-    </TableRow>
-    <TableRow
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1" >
-            <ImageButton
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/image3"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image3_name"
-                    android:text="Name3"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image3_date"
-                    android:text="Date Obtained 3"/>
-            </LinearLayout>
+        android:orientation="horizontal">
 
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/image2"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pineapple" />
+
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1">
-            <ImageButton
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/image2_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/image4"/>
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Name2" />
+
+            <TextView
+                android:id="@+id/image2_date"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image4_name"
-                    android:text="Name4"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/image4_date"
-                    android:text="Date Obtained 4"/>
-            </LinearLayout>
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Date Obtained 2" />
         </LinearLayout>
-    </TableRow>
-</TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/image3"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/apple" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/image3_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Name3" />
+
+            <TextView
+                android:id="@+id/image3_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Date Obtained 3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/image4"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/blue_pen" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/image4_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Name4" />
+
+            <TextView
+                android:id="@+id/image4_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Date Obtained 4" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

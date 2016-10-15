@@ -37,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
         image1_name = (TextView)findViewById(R.id.image1_name);
         image1_date = (TextView)findViewById(R.id.image1_date);
 
-        ImageButton imageButton2 = (ImageButton)findViewById(R.id.image1);
+        ImageButton imageButton2 = (ImageButton)findViewById(R.id.image2);
         image2_name = (TextView)findViewById(R.id.image2_name);
         image2_date = (TextView)findViewById(R.id.image2_date);
 
-        ImageButton imageButton3 = (ImageButton)findViewById(R.id.image1);
+        ImageButton imageButton3 = (ImageButton)findViewById(R.id.image3);
         image3_name = (TextView)findViewById(R.id.image3_name);
         image3_date = (TextView)findViewById(R.id.image3_date);
 
-        ImageButton imageButton4 = (ImageButton)findViewById(R.id.image1);
+        ImageButton imageButton4 = (ImageButton)findViewById(R.id.image4);
         image4_name = (TextView)findViewById(R.id.image4_name);
         image4_date = (TextView)findViewById(R.id.image4_date);
 
@@ -57,28 +57,28 @@ public class MainActivity extends AppCompatActivity {
         imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image1, "image1");
+                showImageMetadata(image1);
             }
         });
 
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image2, "image2");
+                showImageMetadata(image2);
             }
         });
 
         imageButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image3, "image3");
+                showImageMetadata(image3);
             }
         });
 
         imageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showImageMetadata(image4, "image4");
+                showImageMetadata(image4);
             }
         });
     }
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    private void showImageMetadata(Image image, String id) {
+    private void showImageMetadata(Image image) {
         // name source keyword date email rating
         Intent showFormActivity = new Intent(getApplicationContext(), FormActivity.class);
         ArrayList<Image> imageToEdit = new ArrayList<Image>();
@@ -139,9 +139,33 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 0) {
             if (data != null) {
                 ArrayList<Image> imageMetaData = data.getParcelableArrayListExtra("IMAGE_DATA");
-                Image toModify = imageMetaData.get(0);
-                image4.getName(), image4.getSourceURL(), image4.getKeywords(), image4.getDate(), image4.getEmail(), image1.getRating();
+                Image result = imageMetaData.get(0);
+                if (result.getID() == 1) {
+                    image1.cloneImage(result);
+                } else if (result.getID() == 2) {
+                    image2.cloneImage(result);
+                } else if (result.getID() == 3) {
+                    image3.cloneImage(result);
+                } else if (result.getID() == 4) {
+                    image4.cloneImage(result);
+                } else {
+                    // do nothing
+                }
+                updateDataDisplayed();
             }
         }
     }
+
+    private void updateDataDisplayed() {
+        image1_name.setText(image1.getName());
+        image1_date.setText(image1.getDate());
+        image2_name.setText(image2.getName());
+        image2_date.setText(image2.getDate());
+        image3_name.setText(image3.getName());
+        image3_date.setText(image3.getDate());
+        image4_name.setText(image4.getName());
+        image4_date.setText(image4.getDate());
+    }
+
+
 }
