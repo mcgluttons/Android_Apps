@@ -96,6 +96,7 @@
             android:stepSize="1" />
 
         <ToggleButton
+            android:id="@+id/shareButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOff="@string/private_label"

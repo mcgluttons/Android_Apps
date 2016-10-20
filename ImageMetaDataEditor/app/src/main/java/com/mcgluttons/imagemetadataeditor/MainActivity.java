@@ -3,6 +3,7 @@ package com.mcgluttons.imagemetadataeditor;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -101,35 +102,37 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putString("image1_name", image1_name.getText().toString());
-        outState.putString("image1_date", image1_date.getText().toString());
-        outState.putString("image2_name", image2_name.getText().toString());
-        outState.putString("image2_date", image2_date.getText().toString());
-        outState.putString("image3_name", image3_name.getText().toString());
-        outState.putString("image3_date", image3_date.getText().toString());
-        outState.putString("image4_name", image4_name.getText().toString());
-        outState.putString("image4_date", image4_date.getText().toString());
+        outState.putParcelable("image1", image1);
+        outState.putParcelable("image2", image2);
+        outState.putParcelable("image3", image3);
+        outState.putParcelable("image4", image4);
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        image1_name.setText(savedInstanceState.getString("image1_name"));
-        image1_date.setText(savedInstanceState.getString("image1_date"));
-        image2_name.setText(savedInstanceState.getString("image2_name"));
-        image2_date.setText(savedInstanceState.getString("image2_date"));
-        image3_name.setText(savedInstanceState.getString("image3_name"));
-        image3_date.setText(savedInstanceState.getString("image3_date"));
-        image4_name.setText(savedInstanceState.getString("image4_name"));
-        image4_date.setText(savedInstanceState.getString("image4_date"));
+        image1 = savedInstanceState.getParcelable("image1");
+        image2 = savedInstanceState.getParcelable("image2");
+        image3 = savedInstanceState.getParcelable("image3");
+        image4 = savedInstanceState.getParcelable("image4");
+        image1_name.setText(image1.getName());
+        image1_date.setText(image1.getDate());
+        image2_name.setText(image2.getName());
+        image2_date.setText(image2.getDate());
+        image3_name.setText(image3.getName());
+        image3_date.setText(image3.getDate());
+        image4_name.setText(image4.getName());
+        image4_date.setText(image4.getDate());
         super.onRestoreInstanceState(savedInstanceState);
     }
 
     private void showImageMetadata(Image image) {
         // name source keyword date email rating
+
         Intent showFormActivity = new Intent(getApplicationContext(), FormActivity.class);
         ArrayList<Image> imageToEdit = new ArrayList<Image>();
         imageToEdit.add(image);
+        Log.d("PUPPY", "Sending image with ID " + Integer.toString(image.getID()));
         showFormActivity.putParcelableArrayListExtra("IMAGE_DATA", imageToEdit);
         startActivityForResult(showFormActivity, 0);
     }
@@ -140,13 +143,14 @@ public class MainActivity extends AppCompatActivity {
             if (data != null) {
                 ArrayList<Image> imageMetaData = data.getParcelableArrayListExtra("IMAGE_DATA");
                 Image result = imageMetaData.get(0);
-                if (result.getID() == 1) {
+                Log.d("PUPPY", "Image received with ID " + Integer.toString(result.getID()));
+                if (result.getID() == 0) {
                     image1.cloneImage(result);
-                } else if (result.getID() == 2) {
+                } else if (result.getID() == 1) {
                     image2.cloneImage(result);
-                } else if (result.getID() == 3) {
+                } else if (result.getID() == 2) {
                     image3.cloneImage(result);
-                } else if (result.getID() == 4) {
+                } else if (result.getID() == 3) {
                     image4.cloneImage(result);
                 } else {
                     // do nothing

@@ -2,6 +2,7 @@ package com.mcgluttons.imagemetadataeditor;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 
 /**
@@ -16,6 +17,10 @@ public class Image implements Parcelable {
 
     public int getID() {
         return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     private String name;
@@ -78,20 +83,55 @@ public class Image implements Parcelable {
         this.rating = rating;
     }
 
+    private boolean sharing;
+
+    public boolean isSharing() {
+        return sharing;
+    }
+
+    public void setSharing(boolean sharing) {
+        this.sharing = sharing;
+    }
+
     public Image(String name, String date) {
+        Log.d("PUPPY", "Image created with ID " + Integer.toString(counter));
         this.ID = counter++;
-        this.name = name;
-        this.date = date;
+        this.setName(name);
+        this.setDate(date);
+    }
+
+    public Image(String name, String date, String url, String keywords, String email, Float rating, boolean sharing) {
+        this.setName(name);
+        this.setDate(date);
+        this.setSourceURL(url);
+        this.setKeywords(keywords);
+        this.setEmail(email);
+        this.setRating(rating);
+        this.setSharing(sharing);
+    }
+
+    public void updateImageData(String name, String date, String url, String keywords, String email, Float rating, boolean sharing) {
+        this.setName(name);
+        this.setDate(date);
+        this.setSourceURL(url);
+        this.setKeywords(keywords);
+        this.setEmail(email);
+        this.setRating(rating);
+        this.setSharing(sharing);
     }
 
     private Image(Parcel parcel) {
         // name source keyword date email rating
+        ID = parcel.readInt();
         name = parcel.readString();
         sourceURL = parcel.readString();
         keywords = parcel.readString();
         date = parcel.readString();
         email = parcel.readString();
         rating = parcel.readFloat();
+        boolean[] boolArray = new boolean[1];
+        parcel.readBooleanArray(boolArray);
+        sharing = boolArray[0];
     }
 
     public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() {
@@ -114,12 +154,14 @@ public class Image implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         // name source keyword date email rating
+        parcel.writeInt(ID);
         parcel.writeString(name);
         parcel.writeString(sourceURL);
         parcel.writeString(keywords);
         parcel.writeString(date);
         parcel.writeString(email);
         parcel.writeFloat(rating);
+        parcel.writeBooleanArray(new boolean[] {sharing});
     }
 
     void cloneImage(Image modified) {
@@ -128,6 +170,8 @@ public class Image implements Parcelable {
         this.setEmail(modified.getEmail());
         this.setKeywords(modified.getKeywords());
         this.setSourceURL(modified.getSourceURL());
+        this.setSourceURL(modified.getSourceURL());
         this.setRating(modified.getRating());
+        this.setSharing(modified.isSharing());
     }
 }
