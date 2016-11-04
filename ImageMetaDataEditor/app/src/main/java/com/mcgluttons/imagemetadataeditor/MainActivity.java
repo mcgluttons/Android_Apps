@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     private Image image2;
     private Image image3;
     private Image image4;
+
+    private RadioButton small;
+    private RadioButton regular;
+    private RadioButton large;
+
+    private String textSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         ImageButton imageButton4 = (ImageButton)findViewById(R.id.image4);
         image4_name = (TextView)findViewById(R.id.image4_name);
         image4_date = (TextView)findViewById(R.id.image4_date);
+
+        small = (RadioButton)findViewById(R.id.smallText);
+        regular = (RadioButton)findViewById(R.id.normalText);
+        large = (RadioButton)findViewById(R.id.largeText);
 
         if(savedInstanceState == null) {
             initialiseImageData();
@@ -128,12 +139,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void showImageMetadata(Image image) {
         // name source keyword date email rating
+        if (small.isChecked()) {
+            textSize = "small";
+        } else if (large.isChecked()) {
+            textSize = "large";
+        } else {
+            textSize = "regular";
+        }
 
         Intent showFormActivity = new Intent(getApplicationContext(), FormActivity.class);
         ArrayList<Image> imageToEdit = new ArrayList<Image>();
+        Bundle bundle = new Bundle();
+        bundle.putString("text", textSize);
         imageToEdit.add(image);
         Log.d("PUPPY", "Sending image with ID " + Integer.toString(image.getID()));
         showFormActivity.putParcelableArrayListExtra("IMAGE_DATA", imageToEdit);
+        showFormActivity.putExtras(bundle);
         startActivityForResult(showFormActivity, 0);
     }
 

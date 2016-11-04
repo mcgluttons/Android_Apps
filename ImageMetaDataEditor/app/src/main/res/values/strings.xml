@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Image MetaData Editor</string>
 
+    <string name="small_radio_label">Small</string>
+    <string name="normal_radio_label">Regular</string>
+    <string name="large_radio_label">Large</string>
+
     <string name="name_label">Name: </string>
     <string name="date_label">Date: </string>
     <string name="URL_label">Source URL: </string>

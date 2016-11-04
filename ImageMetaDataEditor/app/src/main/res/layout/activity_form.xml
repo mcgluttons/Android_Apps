@@ -19,7 +19,6 @@
         <TextView
             android:id="@+id/nameLabel"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:text="@string/name_label" />
 
@@ -32,7 +31,6 @@
         <TextView
             android:id="@+id/dateLabel"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:text="@string/date_label" />
 
@@ -45,7 +43,6 @@
         <TextView
             android:id="@+id/URLLabel"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:text="@string/URL_label" />
 

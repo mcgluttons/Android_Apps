@@ -157,4 +157,28 @@
                 android:text="Date Obtained 4" />
         </LinearLayout>
     </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/smallText"
+            android:text="@string/small_radio_label"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/normalText"
+            android:text="@string/normal_radio_label"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/largeText"
+            android:text="@string/large_radio_label"/>
+    </RadioGroup>
 </LinearLayout>
