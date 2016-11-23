@@ -5,5 +5,10 @@
     <string name="sunrise">Sunrise</string>
     <string name="sunset">Sunset</string>
     <string name="default_time">00:00</string>
-
+    <string name="button_label">Add New Location</string>
+    <string name="location_label">Location</string>
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="timezone_label">Time Zone</string>
+    <string name="submit_location_button_label">Submit Location</string>
 </resources>

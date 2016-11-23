@@ -14,6 +14,8 @@ package swindroid.suntime.calc;
  * 02111-1307, USA or connect to: http://www.fsf.org/copyleft/gpl.html
  */
 
+import android.util.Log;
+
 import java.util.Calendar;
 import java.util.Date;
 

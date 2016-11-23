@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 
 
@@ -52,7 +53,6 @@
 			<TextView
 				android:padding="2sp"
 				android:textSize="48sp"
-				android:text="@string/default_time"
 				android:textColor="#ffd700"
 				android:gravity="center"
 				android:layout_height="wrap_content"
@@ -62,7 +62,6 @@
 			<TextView
 				android:padding="2sp"
 				android:textSize="48sp"
-				android:text="@string/default_time"
 				android:textColor="#ff8400"
 				android:gravity="center"
 				android:layout_height="wrap_content"

@@ -18,7 +18,7 @@ import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.TextView;
 
-public class Main extends Activity
+public class Main extends AppCompatActivity
 {
 
     private String location = "Melbourne";
@@ -29,6 +29,7 @@ public class Main extends Activity
     private int lastUsedMonth;
     private int lastUsedDay;
     private TextView locationTextView;
+    private TimeZone tz;
 
     /** Called when the activity is first created. */
     @Override
@@ -41,7 +42,7 @@ public class Main extends Activity
 
 	private void initializeUI()
 	{
-
+        Log.d("PUPPY", "in here1");
 		DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
 		Calendar cal = Calendar.getInstance();
         lastUsedYear = cal.get(Calendar.YEAR);
@@ -79,10 +80,10 @@ public class Main extends Activity
 
     private void updateTime(int year, int monthOfYear, int dayOfMonth)
 	{
-        Log.d("PUPPY", "timeZone: " + timeZone);
-		TimeZone tz = TimeZone.getTimeZone(timeZone);
-		GeoLocation geolocation = new GeoLocation(location, latitude, latitude, tz);
+		tz = TimeZone.getTimeZone(timeZone);
+        GeoLocation geolocation = new GeoLocation(location, latitude, longitude, tz);
 		AstronomicalCalendar ac = new AstronomicalCalendar(geolocation);
+
 		ac.getCalendar().set(year, monthOfYear, dayOfMonth);
 		Date srise = ac.getSunrise();
 		Date sset = ac.getSunset();
