@@ -22,9 +22,9 @@ public class Main extends AppCompatActivity
 {
 
     private String location = "Melbourne";
-    private double latitude = -37.50;
-    private double longitude = 145.01;
-    private String timeZone = TimeZone.getDefault().getID();
+    private double latitude = -37.814;
+    private double longitude = 144.96332;
+    private String timeZone = "Australia/Melbourne";
     private int lastUsedYear;
     private int lastUsedMonth;
     private int lastUsedDay;
@@ -40,9 +40,7 @@ public class Main extends AppCompatActivity
         initializeUI();
     }
 
-	private void initializeUI()
-	{
-        Log.d("PUPPY", "in here1");
+	private void initializeUI() {
 		DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
 		Calendar cal = Calendar.getInstance();
         lastUsedYear = cal.get(Calendar.YEAR);

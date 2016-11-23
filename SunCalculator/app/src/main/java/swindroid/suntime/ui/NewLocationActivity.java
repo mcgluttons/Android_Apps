@@ -57,6 +57,8 @@ public class NewLocationActivity extends AppCompatActivity {
                     Log.d("PUPPY", "File output incorrect");
                     e.printStackTrace();
                 }
+                Intent goBack = new Intent();
+                setResult(RESULT_OK, goBack);
                 finish();
             }
         });
